@@ -1,7 +1,18 @@
 img {
-    width: 200px;
-    height: 200px;
-    margin-left: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+
+    height: 19vh;
+    width: 19%;
+    margin: 1px;
+
+}
+
+
+.center-button {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+button {
+    margin-left: 20px;
 }
