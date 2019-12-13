@@ -25,7 +25,7 @@ const paragraph = document.querySelector("p");
 const div = document.querySelector("div");
 let btn = document.querySelectorAll("button");
 btn = [...btn];
-
+const btn1 = btn;
 let pictures = [];
 let clickedImage = "";
 let twoImages = [];
@@ -78,7 +78,8 @@ const clickImage = function() {
 for (let i = 0; i < btn.length; i++) {
     btn[i].addEventListener("click", () => {
         newImages();
-        hideParagraphAndButton();
+        hideParagraphAndButton(btn[i]);
+        console.log(btn[i]);
         //stopWatch();
 
     });
@@ -124,27 +125,29 @@ const newImages = () => {
 
 }
 
-const hideParagraphAndButton = () => {
+const hideParagraphAndButton = (btn) => {
 
 
-    for (let i = 0; i < btn.length; i++) {
-
-        if (btn[i].className === 'beginner') {
-            number = 120;
-            stopWatch();
-        }
-        else if (btn[i].className === 'intermediate') {
-            number = 80;
-            stopWatch();
-        }
-        else if (btn[i].className === 'master') {
-            number = 40;
-            stopWatch();
-        }
-        paragraph.classList.add("d-none");
-        btn[i].classList.add("d-none");
-
-
+    if (btn.classList.contains('beginner')) {
+        number = 120;
+        stopWatch();
+    }
+    else if (btn.classList.contains('intermediate')) {
+        number = 80;
+        stopWatch();
+    }
+    else if (btn.classList.contains('master')) {
+        number = 40;
+        stopWatch();
     };
 
+    paragraph.classList.add("d-none");
+
+
+
+    for (let i = 0; i < btn1.length; i++){
+        btn1[i].classList.add("d-none");
+    }
+    
+  
 };
