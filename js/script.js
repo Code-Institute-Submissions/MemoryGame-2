@@ -1,3 +1,5 @@
+//Variables
+
 const imagesAttributes = [
     ['src', 'images/1.jpg'],
     ['src', 'images/2.jpg'],
@@ -27,12 +29,17 @@ let btn = document.querySelectorAll("button");
 btn = [...btn];
 const btn1 = btn;
 let pictures = [];
+
 let clickedImage = "";
 let twoImages = [];
 const beginner = document.querySelector('.beginner');
 const intermediate = document.querySelector('.intermediate');
 const master = document.querySelector('master');
 let number = "";
+let result = "";
+
+
+//The game, compraing images function
 
 const clickImage = function() {
     clickedImage = this;
@@ -53,7 +60,16 @@ const clickImage = function() {
             if (twoImages[0].getAttribute('alt') === twoImages[1].getAttribute('alt')) {
                 twoImages[0].classList.add('inactive');
                 twoImages[1].classList.add('inactive');
+                result++;
+                if (result === 10){
+                    console.log("end of game");
+                    const removeChildren = document.querySelector(".mainDiv");
+                    while (removeChildren.firstChild){
+                        removeChildren.firstChild.remove();
+                    }
 
+                    //end of the game, remove all elemnts from main div and show information about result and how long the gamer played.
+                }
             }
             else {
 
@@ -75,17 +91,21 @@ const clickImage = function() {
 
 
 };
+
+
 for (let i = 0; i < btn.length; i++) {
     btn[i].addEventListener("click", () => {
         newImages();
         hideParagraphAndButton(btn[i]);
         console.log(btn[i]);
-        //stopWatch();
+        //stopWatch
 
     });
 }
 
 
+
+//Stopwatch
 
 const stopWatch = function() {
 
@@ -99,6 +119,8 @@ const stopWatch = function() {
 
 
 };
+
+//Creating images
 
 const newImages = () => {
     for (let i = 0; i < 20; i++) {
@@ -125,6 +147,9 @@ const newImages = () => {
 
 }
 
+
+//Hiding buttons and paragraph
+
 const hideParagraphAndButton = (btn) => {
 
 
@@ -145,9 +170,9 @@ const hideParagraphAndButton = (btn) => {
 
 
 
-    for (let i = 0; i < btn1.length; i++){
+    for (let i = 0; i < btn1.length; i++) {
         btn1[i].classList.add("d-none");
     }
-    
-  
+
+
 };
