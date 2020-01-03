@@ -37,7 +37,7 @@ const intermediate = document.querySelector('.intermediate');
 const master = document.querySelector('master');
 let number = "";
 let result = "";
-
+let gameTime = "";
 
 //The game, compraing images function
 
@@ -70,8 +70,10 @@ const clickImage = function() {
                     let jumbotron = document.createElement('div');
                     div.appendChild(jumbotron);
                     jumbotron.classList.add('jumbotron', 'jumbotron-fluid');
-                    jumbotron.innerHTML = `<div class="container"><h1 class="display-4">Fluid jumbotron</h1><p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-  </div>`;
+                    jumbotron.innerHTML = `<div class="container"><h1 class="display-4">You played ${gameTime - number} seconds</h1><button onclick="location.reload()">Play again</button></div>`;
+                 //   let playAgainButton = document.createElement('button');
+                   // div.appendChild(playAgainButton);
+                    //playAgainButton.setAttribute('onclick', 'location.reload()') ;
 
 
                     //end of the game, remove all elemnts from main div and show information about result and how long the gamer played.
@@ -109,8 +111,6 @@ for (let i = 0; i < btn.length; i++) {
     });
 }
 
-
-
 //Stopwatch
 
 const stopWatch = function() {
@@ -122,9 +122,9 @@ const stopWatch = function() {
         let timer = setInterval(function() {
             // Stop if passed end time
             number--;
-            if (number <= 0) {
+            if (number <= 0 || result === 10) {
                 clearInterval(timer);
-                alert("you lost, try another time");
+                
             }
 
             let secs = number;
@@ -179,14 +179,17 @@ const hideParagraphAndButton = (btn) => {
 
     if (btn.classList.contains('beginner')) {
         number = 120;
+        gameTime = number;
         stopWatch();
     }
     else if (btn.classList.contains('intermediate')) {
         number = 80;
+        gameTime = number;
         stopWatch();
     }
     else if (btn.classList.contains('master')) {
         number = 40;
+        gameTime = number;
         stopWatch();
     };
 
