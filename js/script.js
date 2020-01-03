@@ -24,7 +24,7 @@ const imagesAttributes = [
 ];
 
 const paragraph = document.querySelector("p");
-const div = document.querySelector("div");
+const div = document.querySelector(".mainDiv");
 let btn = document.querySelectorAll("button");
 btn = [...btn];
 const btn1 = btn;
@@ -61,12 +61,18 @@ const clickImage = function() {
                 twoImages[0].classList.add('inactive');
                 twoImages[1].classList.add('inactive');
                 result++;
-                if (result === 10){
-                    console.log("end of game");
+                if (result === 10) {
+                    console.log(number);
                     const removeChildren = document.querySelector(".mainDiv");
-                    while (removeChildren.firstChild){
+                    while (removeChildren.firstChild) {
                         removeChildren.firstChild.remove();
                     }
+                    let jumbotron = document.createElement('div');
+                    div.appendChild(jumbotron);
+                    jumbotron.classList.add('jumbotron', 'jumbotron-fluid');
+                    jumbotron.innerHTML = `<div class="container"><h1 class="display-4">Fluid jumbotron</h1><p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>`;
+
 
                     //end of the game, remove all elemnts from main div and show information about result and how long the gamer played.
                 }
@@ -108,16 +114,34 @@ for (let i = 0; i < btn.length; i++) {
 //Stopwatch
 
 const stopWatch = function() {
+    const minutes = document.querySelector("#minutes");
+    const seconds = document.querySelector("#seconds");
+
 
     if (number > 0) {
-        number--;
-        document.querySelector('#stopwatch').innerHTML = number;
-        if (number > 0) {
-            setTimeout(stopWatch, 1000);
-        }
+        let timer = setInterval(function() {
+            // Stop if passed end time
+            number--;
+            if (number <= 0) {
+                clearInterval(timer);
+                alert("you lost, try another time");
+            }
+
+            let secs = number;
+            let mins = Math.floor(number / 60);
+
+            secs -= mins * 60;
+
+            // Update HTML
+            minutes.innerHTML = `0${mins}:`;
+            seconds.innerHTML = secs;
+
+
+
+        }, 1000);
+
+
     }
-
-
 };
 
 //Creating images
