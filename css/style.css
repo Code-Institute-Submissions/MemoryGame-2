@@ -1,9 +1,19 @@
+body{
+    color: #30353a;
+    background-color: #d3d5d8;
+}
+
+nav{
+    color: #30353a;
+    background-color:#b1b6bb; 
+}
+
+
 img {
 
     height: 19vh;
     width: 19%;
     margin: 1px;
-
 }
 
 
@@ -16,3 +26,16 @@ img {
 button {
     margin-left: 20px;
 }
+
+
+.stopwatch-inline{
+    display: inline-block;
+}
+
+
+.font-button{
+    color: #30353a;
+    background-color:#b1b6bb; 
+    
+}
+
