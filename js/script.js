@@ -140,8 +140,9 @@ const stopWatch = function() {
 
             minutes.innerHTML = `0${mins}:`;
             seconds.innerHTML = secs;
+            
             if (number <= 9) {
-                seconds.innerHTML = `0${secs}`;
+                seconds.innerHTML = `0${number}`;
 
             }
 
