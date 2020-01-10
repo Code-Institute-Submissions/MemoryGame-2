@@ -34,6 +34,10 @@ A user's expectations are:
     - Showing time left to the end of the game.
 - A function that prevents choosing the same picture by the user.
 
+# Features left implement
+- A contact form to conatct the developer.
+- Pause button.
+
 
 
 # Testing
