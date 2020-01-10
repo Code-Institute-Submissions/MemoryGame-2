@@ -37,6 +37,7 @@ A user's expectations are:
 # Features left implement
 - A contact form to conatct the developer.
 - Pause button.
+- Compatibility with Internet Explorer
 
 
 
